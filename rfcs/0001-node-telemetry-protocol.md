@@ -34,3 +34,7 @@ Nodes host an HTTP/1.1 endpoint on port 4177 by default. Coordinating hubs issue
 1. Timestamps must align within 120 seconds of hub consensus time.
 2. Signatures must verify against the registered worker public key.
 3. Availability scores decay linearly upon missing three consecutive challenge rounds.
+
+## Security Considerations
+
+Nodes must reject inbound probe challenges lacking valid hub signatures to prevent denial of service vectors.
