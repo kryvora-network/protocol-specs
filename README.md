@@ -1,5 +1,9 @@
 # Kryvora Protocol Specifications
 
+[![Specifications](https://img.shields.io/badge/specs-RFC--0001%20to%20RFC--0004-30363d.svg?style=flat-square)](specs/)
+[![License](https://img.shields.io/badge/license-Apache--2.0-30363d.svg?style=flat-square)](LICENSE)
+[![Network](https://img.shields.io/badge/network-Kryvora%20DePIN-30363d.svg?style=flat-square)](https://kryvora.network)
+
 This repository contains the formal specifications and Requests for Comments (RFCs) governing the Kryvora Network protocol.
 
 ## Protocol Architecture Layers
