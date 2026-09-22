@@ -2,6 +2,33 @@
 
 This repository contains the formal specifications and Requests for Comments (RFCs) governing the Kryvora Network protocol.
 
+## Protocol Architecture Layers
+
+```
++-------------------------------------------------------------+
+|                      Application Layer                      |
+|           Distributed Compute / Telemetry Ingest            |
++-------------------------------------------------------------+
+                              |
++-------------------------------------------------------------+
+|                     Coordination Layer                      |
+|             Task Dispatching / Lease Management             |
+|                         (RFC-0003)                          |
++-------------------------------------------------------------+
+                              |
++-------------------------------------------------------------+
+|                     Verification Layer                      |
+|             Peer Probing / Challenge & Slashing             |
+|                    (RFC-0002 / RFC-0004)                    |
++-------------------------------------------------------------+
+                              |
++-------------------------------------------------------------+
+|                      Transport Layer                        |
+|              Mutual TLS / Wire Framing / Protobuf           |
+|                         (RFC-0001)                          |
++-------------------------------------------------------------+
+```
+
 ## Specification Process
 
 Protocol modifications follow a structured RFC workflow:
@@ -19,6 +46,25 @@ Protocol modifications follow a structured RFC workflow:
 | RFC-0002 | Peer Verification and Heartbeat Lifecycle | Accepted | Leon Maximilien |
 | RFC-0003 | Hub Coordination and Task Dispatch | Accepted | Dave Antoine |
 | RFC-0004 | Verification Challenge Protocol and Penalty Calibration | Accepted | Dave Antoine, Leon Maximilien |
+
+## Verification State Machine
+
+```
+[IDLE] ----> (Challenge Issued) ----> [CHALLENGED]
+                                            |
+         +----------------------------------+----------------------------------+
+         |                                                                     |
+(Valid Proof < 500ms)                                                 (Timeout / Invalid Proof)
+         |                                                                     |
+         v                                                                     v
+     [VERIFIED]                                                             [SLASHED]
+         |                                                                     |
+         +-------------------------> [COOLDOWN] <------------------------------+
+                                         |
+                                (Lease Renewed)
+                                         v
+                                      [IDLE]
+```
 
 ## Reference Implementations
 
