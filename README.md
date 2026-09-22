@@ -18,6 +18,7 @@ Protocol modifications follow a structured RFC workflow:
 | RFC-0001 | Node Telemetry and Availability Probes | Accepted | Dave Antoine, Leon Maximilien |
 | RFC-0002 | Peer Verification and Heartbeat Lifecycle | Accepted | Leon Maximilien |
 | RFC-0003 | Hub Coordination and Task Dispatch | Accepted | Dave Antoine |
+| RFC-0004 | Verification Challenge Protocol and Penalty Calibration | Accepted | Dave Antoine, Leon Maximilien |
 
 ## Reference Implementations
 
